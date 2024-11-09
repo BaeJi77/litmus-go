@@ -57,6 +57,7 @@ import (
 	ec2TerminateByID "github.com/litmuschaos/litmus-go/experiments/kube-aws/ec2-terminate-by-id/experiment"
 	ec2TerminateByTag "github.com/litmuschaos/litmus-go/experiments/kube-aws/ec2-terminate-by-tag/experiment"
 	k6Loadgen "github.com/litmuschaos/litmus-go/experiments/load/k6-loadgen/experiment"
+	linkerdFaults "github.com/litmuschaos/litmus-go/experiments/service-mesh/linkerd/experiment"
 	springBootFaults "github.com/litmuschaos/litmus-go/experiments/spring-boot/spring-boot-faults/experiment"
 	vmpoweroff "github.com/litmuschaos/litmus-go/experiments/vmware/vm-poweroff/experiment"
 
@@ -187,6 +188,8 @@ func main() {
 		springBootFaults.Experiment(clients, *experimentName)
 	case "k6-loadgen":
 		k6Loadgen.Experiment(clients)
+	case "linkerd-fault-injection":
+		linkerdFaults.Experiment(clients)
 	default:
 		log.Errorf("Unsupported -name %v, please provide the correct value of -name args", *experimentName)
 		return

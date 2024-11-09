@@ -1,0 +1,36 @@
+apiVersion: litmuchaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  name: linkerd 
+  version: 0.0.1
+  annotations:
+    categories: service-mesh
+spec:
+  displayName: linkerd 
+  categoryDescription: >
+    it execs inside target pods to run the chaos inject commands, waits for the chaos duration and reverts the chaos 
+  keywords: 
+    - "linkerd" 
+    - "service-mesh" 
+    - "fault-injection" 
+    - "pods" 
+    - "kubernetes"
+  platforms: 
+    - "Minikube"
+  maturity: alpha
+  maintainers: 
+    - name: Baeji77 
+      email: hahawjstk@gmail.com 
+  minKubeVersion: 1.16 
+  provider: 
+    name: ChaosNative
+  labels:
+    app.kubernetes.io/component: chartserviceversion
+    app.kubernetes.io/version: latest
+  links: 
+    - name: Documentation 
+      url: https://docs.litmuschaos.io/docs/getstarted/ 
+  icon:
+    - url: 
+      mediatype: ""
+  chaosexpcrdlink: https://raw.githubusercontent.com/litmuschaos/chaos-charts/master/charts/service-mesh/linkerd/experiment.yaml
