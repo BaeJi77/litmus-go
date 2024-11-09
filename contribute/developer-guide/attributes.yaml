@@ -1,0 +1,52 @@
+---
+name: "linkerd"
+version: "0.0.1"
+category: "service-mesh"
+repository: "https://github.com/litmuschaos/litmus-go/tree/master/service-mesh/linkerd"
+community: "https://kubernetes.slack.com/messages/CNXNB0ZTN"
+description: "it execs inside target pods to run the chaos inject commands, waits for the chaos duration and reverts the chaos"
+keywords:
+  - "linkerd"
+  - "service-mesh"
+  - "fault-injection"
+  - "pods"
+  - "kubernetes"
+platforms:
+  - Minikube
+scope: "Namespaced"
+auxiliaryappcheck: false
+permissions:
+  - apigroups:
+      - ""
+      - "batch"
+      - "apps"
+      - "litmuschaos.io"
+    resources:
+      - "jobs"
+      - "pods"
+      - "pods/log"
+      - "events"
+      - "deployments"
+      - "replicasets"
+      - "pods/exec"
+      - "chaosengines"
+      - "chaosexperiments"
+      - "chaosresults"
+    verbs:
+       - "create"
+       - "list"
+       - "get"
+       - "patch"
+       - "update"
+       - "delete"
+       - "deletecollection"
+maturity: "alpha"
+maintainers:
+  - name: "Baeji77"
+    email: "hahawjstk@gmail.com"
+provider:
+  name: "ChaosNative"
+minkubernetesversion: "1.16" # it is related working linkerd version
+references:
+  - name: Documentation
+    url: "https://docs.litmuschaos.io/docs/getstarted/"
